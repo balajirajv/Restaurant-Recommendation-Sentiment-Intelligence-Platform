@@ -1,31 +1,148 @@
-# Project Title: DineSmart: Restaurant Recommendation & Sentiment Analysis
+# DineSmart — Restaurant Recommendation & Sentiment Analysis
 
-## Description
-DineSmart is a data-driven project aimed at providing restaurant recommendations and sentiment analysis based on user reviews. The project analyzes Yelp review data to generate insights into customer preferences and sentiments towards restaurants. It utilizes natural language processing (NLP) techniques and machine learning models to extract meaningful information from the reviews.
+## 📌 Overview
+DineSmart is an end-to-end Unstructured Data Analytics project that analyzes Yelp review data to extract customer sentiment, discover hidden topics, and build an intelligent restaurant recommendation system.  
 
-## Tools and Technologies
-- Python
+The project combines Natural Language Processing (NLP), Machine Learning, and similarity modeling to generate data-driven insights for customers, restaurant owners, and entrepreneurs.
+
+This system helps:
+- Customers discover similar restaurants
+- Business owners understand customer sentiment
+- Entrepreneurs identify promising restaurant categories in a target location
+
+---
+
+## 🎯 Project Objectives
+- Analyze large-scale unstructured Yelp review text
+- Perform sentiment analysis on customer reviews
+- Discover key themes using topic modeling (LDA)
+- Build a content-based restaurant recommendation system
+- Suggest business categories for new restaurant owners
+- Generate business-level insights using data visualization
+
+---
+
+## 🛠 Tools & Technologies
+
+- **Python**
 - Jupyter Notebook
 - Pandas
 - NumPy
 - scikit-learn
 - Gensim
 - spaCy
+- Sentence-Transformers (BERT embeddings)
 - Matplotlib
-- seaborn
+- Seaborn
+- pyLDAvis
+- WordCloud
 
-## Methodology
-The project involves several steps, including data preprocessing, sentiment analysis, topic modeling using Latent Dirichlet Allocation (LDA), and building a restaurant recommendation system based on cosine similarity and collaborative filtering techniques. Text preprocessing techniques such as tokenization, lemmatization, and removing stopwords are applied before analyzing the reviews. LDA is used to identify topics within the reviews, while sentiment analysis determines the overall sentiment of each review. The recommendation system suggests similar restaurants based on user preferences and reviews.
+---
 
-## Results
-The analysis provides insights into customer sentiments and preferences for different types of restaurants. The recommendation system offers personalized suggestions for restaurants based on user input or selected categories.
+## ⚙️ Methodology
 
-## Future Work
-Future enhancements could include refining the recommendation algorithm, integrating user feedback for better recommendations, and deploying the system as a web application or mobile app for users to access easily.
+### 1️⃣ Data Preparation
+- Merged multiple Yelp datasets using `business_id`
+- Built a data dictionary to understand all attributes
+- Cleaned missing values and handled multi-category columns
+- Preprocessed text using:
+  - Tokenization
+  - Stop-word removal
+  - Lemmatization
 
-## How to Use
-Users can replicate the project by following the instructions provided in the Jupyter Notebook. They can also customize the analysis by using their own dataset or adjusting parameters in the machine learning models.
+---
 
-## References
-- Documentation of Python libraries used (e.g., Pandas, scikit-learn)
-- Research papers or online tutorials related to sentiment analysis and recommendation systems
+### 2️⃣ Sentiment Analysis
+- Applied NLP techniques (TextBlob/VADER)
+- Calculated:
+  - Polarity score
+  - Compound score
+  - Custom **super_score** combining sentiment + star ratings
+- Ranked restaurants based on overall sentiment impact
+
+---
+
+### 3️⃣ Topic Modeling
+- Implemented **Latent Dirichlet Allocation (LDA)** using Gensim
+- Identified major discussion themes:
+  - Food quality
+  - Service
+  - Pricing
+  - Ambience
+  - Specific dishes
+- Visualized inter-topic distance using pyLDAvis
+
+---
+
+### 4️⃣ Recommendation System
+Built a **content-based recommendation engine** using:
+
+- TF-IDF Vectorization
+- Sentence-BERT embeddings
+- Cosine Similarity
+- PCA for dimensionality reduction
+
+The system:
+- Recommends top 5 similar restaurants
+- Allows recommendation by restaurant name
+- Suggests similar categories for entrepreneurs
+- Provides location-specific insights
+
+---
+
+### 5️⃣ Data Visualization
+Generated insights using:
+- Review distribution by state and city
+- Sentiment heatmaps
+- Category-wise boxplots
+- Positive & negative word clouds
+- Correlation matrices
+
+---
+
+## 📊 Results & Business Insights
+
+- Identified highly preferred restaurant categories in target cities
+- Discovered customer sentiment patterns affecting ratings
+- Revealed common pain points (service delay, pricing, quality)
+- Built a recommendation engine that improves discovery
+- Provided actionable insights for entrepreneurs planning new restaurants
+
+---
+
+## 🚀 How to Run the Project
+
+```bash
+# Clone the repository
+git clone <your-repo-link>
+
+# Navigate into the project folder
+cd DineSmart
+
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch Jupyter Notebook
+jupyter lab
+
+```
+## 📈 Future Improvements
+
+- Hybrid recommendation system (Content + Collaborative Filtering)
+- Deep Learning sentiment models (Fine-tuned BERT)
+- Real-time dashboard deployment (Streamlit)
+- Cloud-based scalable architecture
+- API-based recommendation service
+
+
+## 📚 References
+
+- Yelp Open Dataset
+- Scikit-learn Documentation
+- Gensim Documentation
+- spaCy Documentation
+- Research papers on NLP & Recommendation Systems
